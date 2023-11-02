@@ -4,7 +4,8 @@
 
 package com.ufes.funcionario.mvp_v1;
 
-import com.ufes.funcionario.mvp_v1.presenter.TelaConsultaPresenter;
+import com.ufes.funcionario.mvp_v1.presenter.TelaPrincipalPresenter;
+import com.ufes.funcionario.mvp_v1.presenter.TelaInclusaoPresenter;
 
 /**
  *
@@ -13,6 +14,6 @@ import com.ufes.funcionario.mvp_v1.presenter.TelaConsultaPresenter;
 public class FuncionarioMVP_V1 {
 
     public static void main(String[] args) {
-       TelaConsultaPresenter view = new TelaConsultaPresenter();
+       TelaPrincipalPresenter view = new TelaPrincipalPresenter();
     }
 }

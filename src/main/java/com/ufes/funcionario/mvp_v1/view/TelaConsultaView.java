@@ -4,6 +4,7 @@
  */
 package com.ufes.funcionario.mvp_v1.view;
 
+import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -29,49 +30,64 @@ public class TelaConsultaView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         funcionariosTable = new javax.swing.JTable();
+        visualizacaoButton = new javax.swing.JButton();
+        fecharButton = new javax.swing.JButton();
+        excluirButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Consulta");
 
         funcionariosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Nome", "Idade", "Salário"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
-        });
+        ));
         funcionariosTable.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(funcionariosTable);
+        jScrollPane2.setViewportView(funcionariosTable);
         funcionariosTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        visualizacaoButton.setText("Visualizar");
+
+        fecharButton.setText("Fechar");
+
+        excluirButton.setText("Excluir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(visualizacaoButton)
+                .addGap(18, 18, 18)
+                .addComponent(excluirButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(fecharButton)
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(visualizacaoButton)
+                    .addComponent(fecharButton)
+                    .addComponent(excluirButton))
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -80,17 +96,29 @@ public class TelaConsultaView extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton excluirButton;
+    private javax.swing.JButton fecharButton;
     private javax.swing.JTable funcionariosTable;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton visualizacaoButton;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getExcluirButton() {
+        return excluirButton;
+    }
+
+    public JButton getFecharButton() {
+        return fecharButton;
+    }
 
     public JTable getFuncionariosTable() {
         return funcionariosTable;
     }
 
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
+    public JButton getVisualizacaoButton() {
+        return visualizacaoButton;
     }
 
+    
 
 }

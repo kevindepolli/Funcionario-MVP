@@ -7,63 +7,63 @@ package com.ufes.funcionario.mvp_v1.presenter;
 import com.ufes.funcionario.mvp_v1.collection.FuncionarioCollection;
 import com.ufes.funcionario.mvp_v1.model.Funcionario;
 import com.ufes.funcionario.mvp_v1.view.TelaFuncionarioView;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Kevin
  */
-public class TelaVisualizacaoPresenter implements ITelaFuncionarioPresenter {
-
+public class TelaInclusaoPresenter {
     private TelaFuncionarioView view;
-    private Funcionario funcionario;
     private FuncionarioCollection funcionarios;
-    
-    public TelaVisualizacaoPresenter(Funcionario funcionario, FuncionarioCollection funcionarios) {
-        this.funcionario = funcionario;
+
+    public TelaInclusaoPresenter(FuncionarioCollection funcionarios){
         this.funcionarios = funcionarios;
         view = new TelaFuncionarioView();
-        
         view.setVisible(false);
-
-        view.getAcaoButton().setText("Excluir");
         
-        view.getNomeTextField().setEditable(false);
-        view.getIdadeTextField().setEditable(false);
-        view.getSalarioTextField().setEditable(false);
-        
-        view.getNomeTextField().setText(funcionario.getNome());
-        view.getIdadeTextField().setText(String.valueOf(funcionario.getIdade()));
-        view.getSalarioTextField().setText(String.valueOf(funcionario.getSalario()));
+        view.getAcaoButton().setText("Salvar");
         
         view.getAcaoButton().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                acao();
+                salvar();
             }
         });
         
         view.getCancelarButton().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                voltar();
+                fechar();
             }
         });
         
-        view.setVisible(true);
         
+        
+        view.setVisible(true);
     }
     
-    
-    @Override
-    public void acao(){
-        funcionarios.removeFuncionario(funcionario);
+    private void salvar(){
+        String nome = view.getNomeTextField().getText();
+        int idade = Integer.parseInt(view.getIdadeTextField().getText());
+        double salario = Double.parseDouble(view.getSalarioTextField().getText());
+        
+        Funcionario funcionario = new Funcionario(nome, idade, salario);
+        
+        funcionarios.adicionaFuncionario(funcionario);
+        
+        JOptionPane.showMessageDialog(view, "Funcionario salvo com sucesso");
+        
+        view.getNomeTextField().setText("");
+        view.getIdadeTextField().setText("");
+        view.getSalarioTextField().setText("");
+    }
+      
+    private void fechar(){
         view.dispose();
-    };
+    }
     
-    @Override
-    public void voltar(){
-        view.dispose();
-    };
 }
